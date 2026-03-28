@@ -86,11 +86,7 @@ namespace DungeonPrototype.EditorTools
 
             EnsureFolder("Assets/Scenes");
             EditorSceneManager.SaveScene(scene, MenuScenePath);
-            EnsureBuildScenes(
-                MenuScenePath,
-                "Assets/Scenes/DungeonPrototype_Start.unity",
-                "Assets/Scenes/DungeonPrototype_Prototype.unity",
-                "Assets/Scenes/SampleScene.unity");
+            EnsureBuildScenes(MenuScenePath, "Assets/Scenes/DungeonPrototype_Prototype.unity", "Assets/Scenes/SampleScene.unity");
 
             Selection.activeGameObject = panel;
             EditorGUIUtility.PingObject(panel);

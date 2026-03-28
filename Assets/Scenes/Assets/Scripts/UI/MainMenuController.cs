@@ -5,7 +5,7 @@ namespace DungeonPrototype.UI
 {
     public class MainMenuController : MonoBehaviour
     {
-        [SerializeField] private string[] gameplayScenes = { "DungeonPrototype_Start", "DungeonPrototype_Prototype", "SampleScene" };
+        [SerializeField] private string[] gameplayScenes = { "DungeonPrototype_Prototype", "SampleScene" };
 
         public void StartNewGame()
         {
