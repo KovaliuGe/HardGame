@@ -36,6 +36,16 @@ namespace DungeonPrototype.Guardians
 
         public GuardianState State => _state;
 
+        private void Reset()
+        {
+            EnsureAgentDisabledInEditor();
+        }
+
+        private void OnValidate()
+        {
+            EnsureAgentDisabledInEditor();
+        }
+
         private void Awake()
         {
             _agent = GetComponent<NavMeshAgent>();
@@ -50,6 +60,22 @@ namespace DungeonPrototype.Guardians
 
             TryAttachToNavMesh();
             SetAgentStoppedSafe(true);
+        }
+
+        private void EnsureAgentDisabledInEditor()
+        {
+#if UNITY_EDITOR
+            if (Application.isPlaying)
+            {
+                return;
+            }
+
+            NavMeshAgent agent = GetComponent<NavMeshAgent>();
+            if (agent != null)
+            {
+                agent.enabled = false;
+            }
+#endif
         }
 
         private void OnEnable()
